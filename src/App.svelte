@@ -14,7 +14,7 @@
 
 <header>
     <h1>In their words</h1>
-    <p class="subhead">How many minutes each each party leader spoke on different subjects during B.C.’s televised election debate on Oct. 8.</p>
+    <p class="subhead">Minutes each party leader spoke on different subjects during B.C.’s televised election debate on Oct. 8.</p>
 </header>
 
 <main>
@@ -33,7 +33,7 @@
         </li>
         <li class="healthcare">
             <span class="swatch"></span>
-            <p>Healthcare</p>
+            <p>Health care</p>
         </li>
         <li class="drugs">
             <span class="swatch"></span>
