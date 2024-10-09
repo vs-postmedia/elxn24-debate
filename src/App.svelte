@@ -1,7 +1,6 @@
 <script>
     // COMPONENTS
     import { onMount } from 'svelte';
-    import { csvParse } from 'd3-dsv';
 
     // IMAGES
     import ebyImg from '$images/eby-mug.png';
@@ -11,23 +10,6 @@
 
     // DATA
     const dataUrl = 'https://raw.githubusercontent.com/ajstarks/dubois-data-portraits/master/challenge/2024/challenge03/data.csv';
-
-    // VARIABLES
-    let data;
-
-    async function fetchData(url) {
-        const resp = await fetch(url);
-        data = await resp.text();
-        return csvParse(data);
-    }
-
-    async function init() {
-        // fetch remote data
-        data = await fetchData(dataUrl);
-        // console.log(data);
-    }
-
-    onMount(init);
 </script>
 
 <header>
@@ -37,9 +19,9 @@
 
 <main>
     <ul id="legend">
-        <li class="Housing">
+        <li class="housing">
             <span class="swatch"></span>
-            <p>Climate/Environment</p>
+            <p>Housing</p>
         </li>
         <li class="economy">
             <span class="swatch"></span>
@@ -49,13 +31,25 @@
             <span class="swatch"></span>
             <p>Healthcare</p>
         </li>
-        <li class="other">
+        <li class="climate">
             <span class="swatch"></span>
-            <p>Climate/Environment</p>
+            <p>Climate</p>
         </li>
-        <li class="other">
+        <li class="fn">
             <span class="swatch"></span>
-            <p>Other</p>
+            <p>First Nations</p>
+        </li>
+        <li class="seniors">
+            <span class="swatch"></span>
+            <p>Seniors</p>
+        </li>
+        <li class="drugs">
+            <span class="swatch"></span>
+            <p>Toxic drugs</p>
+        </li>
+        <li class="crime">
+            <span class="swatch"></span>
+            <p>Crime</p>
         </li>
     </ul>
 
@@ -72,7 +66,7 @@
                 <img class="cons" src={rustadImg} />
                 <!-- <p>John Rustad</p> -->
             </span>
-            <iframe src='https://flo.uri.sh/visualisation/19724112/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:75px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+            <iframe src='https://flo.uri.sh/visualisation/19737292/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:75px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
             
         </li>
         <li>
@@ -80,14 +74,14 @@
                 <img class="greens" src={furstenauImg} />
                 <!-- <p>Sonia Fursteau</p> -->
             </span>
-            <iframe src='https://flo.uri.sh/visualisation/19724112/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:75px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+            <iframe src='https://flo.uri.sh/visualisation/19737286/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:75px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
         </li>
     </ul>
 </main>
 
 <footer>
     <p class="note">NOTE: tk.</p>
-    <p class="source">Source:  <a href="https:vancouversun.com" target="_blank">TK</a></p>
+    <p class="source">Source: Postmedia analysis</p>
 </footer>
   
 <style>
@@ -101,16 +95,46 @@
 	}
     #legend {
         display: flex;
+        flex-wrap: wrap;
     }
     #legend li {
         display: flex;
     }
     #legend .swatch {
-        border: 1px solid blue;
         display: block;
-        height: 10px;
+        height: 12px;
         margin: 3px 5px 3px 8px;
-        width: 10px;
+        width: 12px;
+    }
+    #legend .economy > span {
+        background-color: #a28ebd;
+    }
+    #legend .healthcare > span {
+        background-color: #0062A3;
+    }
+    #legend .climate > span {
+        background-color: #009775;
+    }
+    #legend .housing > span {
+        background-color: #9B3F86;
+    }
+    #legend .other > span {
+        background-color: #d1d2d4;
+    }
+    #legend .fn > span {
+        background-color: #6D6E70;
+    }
+    #legend .drugs > span {
+        background-color: #795b9e;
+    }
+    #legend .seniors > span {
+        background-color: #b174a2;
+    }
+    #legend .crime > span {
+        background-color: #6D8EBF;
+    }
+    #legend .other > span {
+        background-color: #d1d2d4;
     }
     #viz ul li {
         display: flex; 
@@ -123,9 +147,6 @@
         border-radius: 50%;
         margin-top: -10px;
         width: 80px;
-    }
-    #viz li div {
-        display: block;
     }
     #viz li p {
         text-align: center;
