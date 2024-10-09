@@ -106,7 +106,7 @@
         display: flex;
     }
     #legend .swatch {
-        border: 1px solid red;
+        border: 1px solid blue;
         display: block;
         height: 10px;
         margin: 3px 5px 3px 8px;
