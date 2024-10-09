@@ -32,26 +32,55 @@
 
 <header>
     <h1>In their words</h1>
-    <p class="subhead">How long each each party leader spoke and what they talked about during B.C.’s televised election debate on Oct. 8.</p>
+    <p class="subhead">How long each each party leader spoke and what they spoke about during B.C.’s televised election debate on Oct. 8.</p>
 </header>
 
 <main>
     <ul id="legend">
-        <li class=""></li>
+        <li class="Housing">
+            <span class="swatch"></span>
+            <p>Climate/Environment</p>
+        </li>
+        <li class="economy">
+            <span class="swatch"></span>
+            <p>Economy</p>
+        </li>
+        <li class="healthcare">
+            <span class="swatch"></span>
+            <p>Healthcare</p>
+        </li>
+        <li class="other">
+            <span class="swatch"></span>
+            <p>Climate/Environment</p>
+        </li>
+        <li class="other">
+            <span class="swatch"></span>
+            <p>Other</p>
+        </li>
     </ul>
+
     <ul id="viz">
         <li>
-            <img class="ndp" src={ebyImg} />
-            <iframe src='https://flo.uri.sh/visualisation/19724112/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:100px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+            <span>
+                <img class="ndp" src={ebyImg} />
+                <!-- <p>David Eby</p> -->
+            </span>
+            <iframe src='https://flo.uri.sh/visualisation/19724112/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:75px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
         </li>
         <li>
-            <img class="cons" src={rustadImg} />
-            <iframe src='https://flo.uri.sh/visualisation/19724112/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:100px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+            <span>
+                <img class="cons" src={rustadImg} />
+                <!-- <p>John Rustad</p> -->
+            </span>
+            <iframe src='https://flo.uri.sh/visualisation/19724112/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:75px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
             
         </li>
         <li>
-            <img class="greens" src={furstenauImg} />
-            <iframe src='https://flo.uri.sh/visualisation/19724112/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:100px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+            <span>
+                <img class="greens" src={furstenauImg} />
+                <!-- <p>Sonia Fursteau</p> -->
+            </span>
+            <iframe src='https://flo.uri.sh/visualisation/19724112/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:75px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
         </li>
     </ul>
 </main>
@@ -70,17 +99,36 @@
     header {
 		margin-bottom: 2rem;
 	}
+    #legend {
+        display: flex;
+    }
+    #legend li {
+        display: flex;
+    }
+    #legend .swatch {
+        border: 1px solid red;
+        display: block;
+        height: 10px;
+        margin: 3px 5px 3px 8px;
+        width: 10px;
+    }
     #viz ul li {
         display: flex; 
         justify-content: flex-start;
     }
     #viz li {
-        margin: 15px 0;
+        margin: 30px 0;
     }
     #viz img {
         border-radius: 50%;
         margin-top: -10px;
         width: 80px;
+    }
+    #viz li div {
+        display: block;
+    }
+    #viz li p {
+        text-align: center;
     }
     #viz iframe {
         width: calc(100% - 100px);
