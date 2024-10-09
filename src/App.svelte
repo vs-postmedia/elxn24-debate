@@ -2,8 +2,11 @@
     // COMPONENTS
     import { onMount } from 'svelte';
     import { csvParse } from 'd3-dsv';
-    import Chart from "$components/Chart.svelte";
 
+    // IMAGES
+    import ebyImg from '$images/eby-mug.png';
+    import rustadImg from '$images/rustad-mug.png';
+    import furstenauImg from '$images/furstenau-mug.png';
     
 
     // DATA
@@ -11,6 +14,7 @@
 
     // VARIABLES
     let data;
+
     async function fetchData(url) {
         const resp = await fetch(url);
         data = await resp.text();
@@ -28,13 +32,28 @@
 
 <header>
     <h1>In their words</h1>
-    <p class="subhead">Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+    <p class="subhead">How long each each party leader spoke and what they talked about during B.C.’s televised election debate on Oct. 8.</p>
 </header>
 
 <main>
-    <Chart 
-        data={data}
-    />
+    <ul id="legend">
+        <li class=""></li>
+    </ul>
+    <ul id="viz">
+        <li>
+            <img class="ndp" src={ebyImg} />
+            <iframe src='https://flo.uri.sh/visualisation/19724112/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:100px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+        </li>
+        <li>
+            <img class="cons" src={rustadImg} />
+            <iframe src='https://flo.uri.sh/visualisation/19724112/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:100px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+            
+        </li>
+        <li>
+            <img class="greens" src={furstenauImg} />
+            <iframe src='https://flo.uri.sh/visualisation/19724112/embed' title='Interactive or visual content' frameborder='0' scrolling='no' style='height:100px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+        </li>
+    </ul>
 </main>
 
 <footer>
@@ -51,12 +70,28 @@
     header {
 		margin-bottom: 2rem;
 	}
-	header > h1 {
-		text-align: center;
-	}
-	header .subhead {
-		margin: 0 auto;
-		max-width: 525px;
-		text-align: center;
-	}
+    #viz ul li {
+        display: flex; 
+        justify-content: flex-start;
+    }
+    #viz li {
+        margin: 15px 0;
+    }
+    #viz img {
+        border-radius: 50%;
+        margin-top: -10px;
+        width: 80px;
+    }
+    #viz iframe {
+        width: calc(100% - 100px);
+    }
+    #viz img.ndp {
+        border: 4px solid #FD4E27;
+    }
+    #viz img.cons {
+        border: 4px solid #004AAD;
+    }
+    #viz img.greens {
+        border: 4px solid #009A44;
+    }
 </style>
