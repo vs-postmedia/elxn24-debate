@@ -80,7 +80,7 @@
 </main>
 
 <footer>
-    <p class="note">NOTE: tk.</p>
+    <p class="note">NOTE: Speaking times are approximate. When more than one subject was discussed by a candidate, it was categorized by the primary subject.</p>
     <p class="source">Source: Postmedia analysis</p>
 </footer>
   
